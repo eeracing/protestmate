@@ -1,15 +1,15 @@
-export function createFormErrors(form, statusElement) {
-  function fieldInputs(field) {
+export function createFormErrors(form: HTMLFormElement, statusElement: HTMLElement) {
+  function fieldInputs(field: string) {
     return form.querySelectorAll(`[name="${field}"]`);
   }
 
-  function clearField(field) {
+  function clearField(field: string) {
     for (const input of fieldInputs(field)) input.removeAttribute("aria-invalid");
     const error = form.querySelector(`#${field}-error`);
     if (error) error.textContent = "";
   }
 
-  function showField(field, message) {
+  function showField(field: string, message: string) {
     for (const input of fieldInputs(field)) input.setAttribute("aria-invalid", "true");
     const error = form.querySelector(`#${field}-error`);
     if (error) error.textContent = message;
@@ -24,7 +24,7 @@ export function createFormErrors(form, statusElement) {
     statusElement.classList.remove("visible");
   }
 
-  function showStatus(message) {
+  function showStatus(message: string) {
     statusElement.textContent = message;
     statusElement.classList.add("visible");
   }

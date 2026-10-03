@@ -55,19 +55,7 @@
         text-decoration: none;
       }
 
-      .brand-mark {
-        display: grid;
-        width: 29px;
-        height: 29px;
-        place-items: center;
-        border-radius: 7px;
-        background: var(--track);
-        color: #fff;
-        font-size: 10px;
-        font-style: italic;
-        letter-spacing: -.04em;
-        box-shadow: inset 4px 0 0 var(--accent);
-      }
+      .brand-logo { display: block; width: 40px; height: 40px; aspect-ratio: 1; object-fit: contain; }
 
       .header-actions { display: flex; align-items: center; gap: 8px; }
 
@@ -381,6 +369,17 @@
       .result-card.has-result .result-placeholder { display: none; }
       .result-card.has-result .result-text { display: block; }
 
+      .result-translation {
+        display: none;
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+      }
+
+      .result-card.has-result .result-translation { display: block; }
+      .result-translation h3 { margin: 0 0 10px; font-size: .78rem; color: var(--muted); }
+      .result-translation p { margin: 0; font-size: .84rem; line-height: 1.72; color: var(--text); }
+
       .notice { padding: 20px; }
       .notice.preflight { margin-bottom: 16px; border-left: 3px solid var(--accent); }
       .notice h2 { margin: 0 0 9px; font-size: .95rem; letter-spacing: -.015em; }
@@ -601,7 +600,9 @@
       footer {
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-end;
         gap: 8px;
+        border-top: 1px solid var(--line);
         padding: 34px 0;
         color: #686d76;
         font-size: 12px;
@@ -609,7 +610,7 @@
         line-height: 1.5;
       }
 
-      footer strong, footer a { color: var(--text); text-decoration: none; }
+      footer a { color: var(--text); text-decoration: none; }
       footer a:hover { color: var(--accent); }
 
       @media (max-width: 760px) {

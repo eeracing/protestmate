@@ -4,11 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "check": "wrangler deploy --dry-run",
-    "deploy": "wrangler deploy"
+    "dev": "npm run build && wrangler dev",
+    "dev:ui": "astro dev",
+    "typecheck": "tsc --noEmit",
+    "build": "astro build",
+    "check": "npm run typecheck && npm run build && wrangler deploy --dry-run",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
+    "astro": "^7.3.5",
+    "typescript": "^7.0.2",
     "wrangler": "^4.121.0"
   }
 }

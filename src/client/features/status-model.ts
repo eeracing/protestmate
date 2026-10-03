@@ -1,6 +1,4 @@
-import { connectDialog } from "../ui/dialog.js";
-
-const protestStatuses = {
+export const protestStatuses = {
   pending: {
     marker: "…",
     title: "已受理 · 审核中",
@@ -27,7 +25,7 @@ const protestStatuses = {
   },
 };
 
-function normalizeEmailContent(content) {
+function normalizeEmailContent(content: string) {
   return content
     .toLowerCase()
     .replace(/[’‘]/g, "'")
@@ -36,7 +34,7 @@ function normalizeEmailContent(content) {
     .trim();
 }
 
-function classifyProtestStatus(content) {
+export function classifyProtestStatus(content: string) {
   const normalized = normalizeEmailContent(content);
   const isNotIntentional = [
     "do not feel that the accident was caused intentionally or with malice",
@@ -60,34 +58,5 @@ function classifyProtestStatus(content) {
   return "unknown";
 }
 
-export function initStatusChecker(elements) {
-  const { openButton, dialog, form, emailInput, result, marker, title, copy, evidence } = elements;
-  connectDialog({
-    dialog,
-    openButton,
-    closeSelector: "[data-close-status]",
-    initialFocus: emailInput,
-  });
 
-  function showStatus(status) {
-    const content = protestStatuses[status];
-    result.dataset.status = status;
-    marker.textContent = content.marker;
-    title.textContent = content.title;
-    copy.textContent = content.copy;
-    evidence.textContent = content.evidence;
-    result.classList.add("visible");
-  }
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const emailContent = emailInput.value.trim();
-    if (!emailContent) return emailInput.focus();
-    showStatus(classifyProtestStatus(emailContent));
-  });
-
-  emailInput.addEventListener("input", () => {
-    result.classList.remove("visible");
-    result.removeAttribute("data-status");
-  });
-}
+export type Status = keyof typeof protestStatuses;

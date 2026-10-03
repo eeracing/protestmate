@@ -1,0 +1,87 @@
+        <form id="protest-form" class="card form-card" novalidate>
+          <h2 class="section-heading"><span class="step">01</span>快速生成</h2>
+          <p class="required-note"><span class="required-mark" aria-hidden="true">*</span> 为必填项</p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="incidentType">违规类型<span class="required-mark" aria-hidden="true">*</span><span class="sr-only">（必填）</span></label>
+              <select id="incidentType" name="incidentType" aria-describedby="incidentType-hint incidentType-error">
+                <option value="">请选择</option>
+              </select>
+              <p class="field-hint" id="incidentType-hint">类型仅用于归类，事故描述请填写回放中可观察的动作</p>
+              <p class="field-error" id="incidentType-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="protestedDriverName">车手名称<span class="required-mark" aria-hidden="true">*</span><span class="sr-only">（必填）</span></label>
+              <input id="protestedDriverName" name="protestedDriverName" placeholder="例如：John Smith" aria-describedby="protestedDriverName-error">
+              <p class="field-error" id="protestedDriverName-error"></p>
+            </div>
+
+            <div class="field full">
+              <label for="observedAction">事件经过<span class="required-mark" aria-hidden="true">*</span><span class="sr-only">（必填）</span></label>
+              <textarea id="observedAction" name="observedAction" placeholder="简单描述对方做了什么，例如：对方从草地重返后直接横穿赛车线，并与我的车辆发生接触……" aria-describedby="observedAction-hint observedAction-error"></textarea>
+              <p class="field-hint" id="observedAction-hint">描述对方的行为和事件顺序，我方如何应对可在下方选填。</p>
+              <p class="field-error" id="observedAction-error"></p>
+            </div>
+          </div>
+
+          <div class="skip-details">
+            <button id="skip-details-button" class="skip-details-button" type="button">跳过选填，前往生成 ↓</button>
+          </div>
+
+          <div class="divider"></div>
+          <h2 class="section-heading"><span class="step">02</span>补充细节 <span class="optional">选填，填写后描述会更准确</span></h2>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="sessionType">场次类型 <span class="optional">选填</span></label>
+              <select id="sessionType" name="sessionType" aria-describedby="sessionType-error">
+                <option value="">请选择</option>
+              </select>
+              <p class="field-error" id="sessionType-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="lapOrTime">圈数或事故时间 <span class="optional">选填</span></label>
+              <input id="lapOrTime" name="lapOrTime" placeholder="例如：第 12 圈 / 剩余 08:32" aria-describedby="lapOrTime-error">
+              <p class="field-error" id="lapOrTime-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="trackLocation">赛道位置 <span class="optional">选填</span></label>
+              <input id="trackLocation" name="trackLocation" placeholder="例如：T3 出弯 / 主直道刹车区" aria-describedby="trackLocation-error">
+              <p class="field-error" id="trackLocation-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="otherCarNumber">对方车号 <span class="optional">选填</span></label>
+              <input id="otherCarNumber" name="otherCarNumber" placeholder="例如：18" aria-describedby="otherCarNumber-error">
+              <p class="field-error" id="otherCarNumber-error"></p>
+            </div>
+
+            <div class="field full">
+              <label for="userAction">我方当时的动作 <span class="optional">选填</span></label>
+              <textarea id="userAction" name="userAction" placeholder="例如：我保持原有赛车线，看到对方重返后立即刹车并向左避让……" aria-describedby="userAction-error"></textarea>
+              <p class="field-error" id="userAction-error"></p>
+            </div>
+
+            <fieldset class="field full" aria-describedby="outcomes-error">
+              <legend>事故后果 <span class="optional">选填，可多选</span></legend>
+              <div class="checks"></div>
+              <p class="field-hint">“无接触”可与冲出赛道、损失时间等后果同时选择；选择“其他”时，请在补充信息中说明。</p>
+              <p class="field-error" id="outcomes-error"></p>
+            </fieldset>
+
+            <div class="field full">
+              <label for="additionalContext">补充信息 <span class="optional">选填</span></label>
+              <textarea id="additionalContext" name="additionalContext" placeholder="补充有助于理解事件的信息、判断或感受。"></textarea>
+              <p class="field-error" id="additionalContext-error"></p>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button id="submit-button" class="primary-button" type="submit">生成描述与翻译 →</button>
+            <p class="privacy">内容会发送至 AI 完成本次生成；ProtestMate 不保存你的描述。</p>
+          </div>
+          <div id="status-error" class="status-error" role="alert"></div>
+        </form>

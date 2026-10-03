@@ -1,0 +1,30 @@
+    <dialog id="status-checker" class="status-dialog" aria-labelledby="status-checker-title">
+      <header class="guide-header">
+        <h2 id="status-checker-title">申诉处理状态</h2>
+        <button class="dialog-close" type="button" data-close-status aria-label="关闭申诉处理状态">关闭</button>
+      </header>
+
+      <div class="status-dialog-body">
+        <p class="status-dialog-copy">
+          粘贴 iRacing 发来的<strong>邮件主题和正文</strong>，确认申诉当前所处的处理状态。
+        </p>
+        <form id="status-checker-form">
+          <label class="status-email-label" for="status-email-input">iRacing 邮件内容</label>
+          <textarea id="status-email-input" class="status-email-input" maxlength="50000" placeholder="在这里粘贴整封邮件……" required></textarea>
+          <div class="status-dialog-actions">
+            <button class="status-check-button" type="submit">确认状态</button>
+            <p class="status-privacy">邮件只在当前浏览器中处理，不会上传或保存。</p>
+          </div>
+        </form>
+
+        <section id="status-result" class="status-result" role="status" aria-live="polite">
+          <h3 class="status-result-heading">
+            <span id="status-result-marker" class="status-result-marker" aria-hidden="true"></span>
+            <span id="status-result-title"></span>
+          </h3>
+          <p id="status-result-copy" class="status-result-copy"></p>
+          <p id="status-result-evidence" class="status-result-evidence"></p>
+        </section>
+      </div>
+    </dialog>
+

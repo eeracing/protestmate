@@ -1,4 +1,5 @@
-export function connectDialog({ dialog, openButton, closeSelector, initialFocus }) {
+type DialogOptions = { dialog: HTMLDialogElement; openButton?: HTMLElement; closeSelector: string; initialFocus?: HTMLElement };
+export function connectDialog({ dialog, openButton, closeSelector, initialFocus }: DialogOptions) {
   openButton?.addEventListener("click", () => {
     dialog.showModal();
     if (initialFocus) window.setTimeout(() => initialFocus.focus(), 0);

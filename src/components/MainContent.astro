@@ -1,0 +1,35 @@
+---
+import ProtestForm from "./ProtestForm.astro";
+import ResultCard from "./ResultCard.astro";
+---
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <div class="eyebrow">Race control / Protest 01</div>
+          <h1 id="page-title"><span>iRacing 申诉助手</span></h1>
+        </div>
+        <p class="hero-copy">
+          写下事件经过，ProtestMate 会帮你整理成英文描述，并附上中文翻译供你核对。
+        </p>
+      </section>
+
+      <section class="card notice preflight" aria-labelledby="preflight-title">
+        <h2 id="preflight-title">提交前先确认</h2>
+        <p>
+          <strong>赛道类申诉必须附 Replay，否则不会受理。</strong>
+          请将文件裁剪到相关事件片段并控制在 50 MB 以内。场次结束 30 分钟后方可提交，且须在事件发生后 7 天内完成。
+          <button id="open-protest-guide" class="inline-link" type="button">查看提交步骤</button>
+        </p>
+        <p>
+          <strong>普通比赛事故不一定构成申诉。</strong>
+          只在你认为行为违反官方赛事规则时提交，并确保内容合理、合乎逻辑且有可靠证据；轻率或不完整的申诉可能导致处罚。
+          <a href="https://iracing-official-rules.apexracing.cn/" target="_blank" rel="noreferrer">查看官方赛事规则</a>
+        </p>
+      </section>
+
+      <div class="workspace">
+        <ProtestForm />
+
+        <ResultCard />
+      </div>
+    </main>

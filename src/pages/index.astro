@@ -1,0 +1,33 @@
+---
+import MainContent from "../components/MainContent.astro";
+import StatusDialog from "../components/StatusDialog.astro";
+import ProtestGuide from "../components/ProtestGuide.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/app.css";
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="把中文赛道事故中的事实、判断与感受整理成英文 iRacing 申诉描述。">
+    <link rel="icon" href="/favicon.webp" type="image/webp" sizes="32x32">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>ProtestMate - iRacing 申诉助手</title>
+  </head>
+  <body>
+    <header class="shell site-header">
+      <div class="brand">
+        <img class="brand-logo" src="/assets/brand/icon-192.webp" width="40" height="40" alt="" aria-hidden="true"><span>ProtestMate</span>
+      </div>
+      <div class="header-actions">
+        <button id="open-status-checker" class="status-entry" type="button">申诉处理状态</button>
+      </div>
+    </header>
+    <MainContent />
+    <StatusDialog />
+    <ProtestGuide />
+    <Footer />
+    <script src="../client/main.ts"></script>
+  </body>
+</html>
