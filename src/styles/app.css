@@ -55,7 +55,17 @@
         text-decoration: none;
       }
 
-      .brand-logo { display: block; width: 40px; height: 40px; aspect-ratio: 1; object-fit: contain; }
+      .brand-logo { display: block; width: 40px; height: 40px; aspect-ratio: 1; object-fit: contain; flex-shrink: 0; }
+      .brand-text { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 9px; }
+      .brand-attribution {
+        color: var(--muted);
+        font-size: .72rem;
+        font-weight: 500;
+        letter-spacing: .01em;
+        white-space: nowrap;
+      }
+      .brand-attribution a { font-weight: 650; text-decoration: none; }
+      .brand-attribution a:hover, .brand-attribution a:focus-visible { color: #1747D1; }
 
       .header-actions { display: flex; align-items: center; gap: 8px; }
 
@@ -619,7 +629,10 @@
 
       @media (max-width: 560px) {
         .shell { width: min(100% - 28px, 900px); }
-        .site-header { min-height: 76px; }
+        .site-header { min-height: 76px; gap: 12px; }
+        .brand { gap: 8px; }
+        .brand-attribution { font-size: .62rem; }
+        .header-actions { flex-shrink: 0; }
         .status-entry { min-height: 40px; }
         main { padding: 28px 0 48px; }
         .hero { padding: 22px 20px; }
