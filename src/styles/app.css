@@ -55,7 +55,7 @@
         text-decoration: none;
       }
 
-      .brand-logo { display: block; width: 48px; height: 48px; aspect-ratio: 1; object-fit: contain; flex-shrink: 0; mix-blend-mode: multiply; }
+      .brand-logo { display: block; width: 48px; height: 48px; aspect-ratio: 1; object-fit: contain; flex-shrink: 0; }
       .brand-text { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 9px; }
       .brand-attribution {
         color: var(--muted);
